@@ -18,6 +18,7 @@ package akash.app.customnumpad;
 import android.app.Activity;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class CustomNumpadActivity extends Activity {
     /** Called when the activity is first created. */
@@ -29,9 +30,6 @@ public class CustomNumpadActivity extends Activity {
         //Get Numpad to set current activity to dispatch key events
         CustomNumpadView cnv = (CustomNumpadView) findViewById(R.id.numpadView);
         cnv.setActionListenerActivity(this);
-        
-        //create new android keyboard object to set it as default keyboard for current view
-        Keyboard keyboard = new Keyboard(this, R.xml.keyboard);
-        cnv.setKeyboard(keyboard);
+        System.out.println("Came here successfully");
     }
 }

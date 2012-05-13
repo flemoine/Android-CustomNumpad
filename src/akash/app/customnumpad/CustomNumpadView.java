@@ -17,6 +17,7 @@ package akash.app.customnumpad;
 
 import android.app.Activity;
 import android.content.Context;
+import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -24,14 +25,16 @@ import android.view.KeyEvent;
 public class CustomNumpadView extends KeyboardView {
 
     CustomOnKeyboardActionListener keyListener;
-    
+    Keyboard kb = null;
     public CustomNumpadView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        kb = new Keyboard(context,R.xml.keyboard);
     }
     
     public void setActionListenerActivity(Activity act){
         keyListener = new CustomOnKeyboardActionListener(act);
         this.setOnKeyboardActionListener(keyListener);
+        this.setKeyboard(kb);
     }
     
     @Override
